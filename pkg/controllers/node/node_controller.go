@@ -25,19 +25,19 @@ import (
 )
 
 type NodeController struct {
-	ctx          context.Context
-	informer     cache.Controller
-	indexer      cache.Indexer
-	config       *config.Config
-	nodemapper   map[string]string
-	nodemapLock  sync.Mutex
+	ctx         context.Context
+	informer    cache.Controller
+	indexer     cache.Indexer
+	config      *config.Config
+	nodemapper  map[string]string
+	nodemapLock sync.Mutex
 }
 
 func NewNodeController(ctx context.Context, cfg *config.Config) controller.Controller {
 	return &NodeController{
-		ctx:          ctx,
-		nodemapper:   map[string]string{},
-		config:       cfg,
+		ctx:        ctx,
+		nodemapper: map[string]string{},
+		config:     cfg,
 	}
 }
 

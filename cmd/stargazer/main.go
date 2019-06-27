@@ -56,7 +56,7 @@ func main() {
 			WithError(err).Warn("Failed to parse config, using defaults")
 	}
 
-	log.WithField("config", fmt.Sprintf("%+v",*cfg)).Info("Configuration loaded")
+	log.WithField("config", fmt.Sprintf("%+v", *cfg)).Info("Configuration loaded")
 
 	logLevel, err := log.ParseLevel(cfg.LogLevel)
 	if err != nil {
@@ -81,8 +81,8 @@ func main() {
 		switch controllerType {
 		case "node":
 			nodeController := node.NewNodeController(ctx, cfg)
-			controllerCtrl.controllerStates["Node"] = &controllerState {
-				controller: nodeController,
+			controllerCtrl.controllerStates["Node"] = &controllerState{
+				controller:  nodeController,
 				threadiness: cfg.NodeWorkers,
 			}
 		default:

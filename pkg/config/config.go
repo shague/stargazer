@@ -21,14 +21,14 @@ import (
 )
 
 type Config struct {
-	LogLevel string
+	LogLevel    string
 	NodeWorkers int
 	Controllers string
 }
 
 func NewConfig() *Config {
-	return &Config {
-		LogLevel: "info",
+	return &Config{
+		LogLevel:    "info",
 		NodeWorkers: 1,
 		Controllers: "node",
 	}
@@ -36,8 +36,8 @@ func NewConfig() *Config {
 
 func (c *Config) Parse(cfgPath string, cfgName string) error {
 	vpr := viper.New()
-	defaults := map[string]interface{} {
-		"LogLevel": c.LogLevel,
+	defaults := map[string]interface{}{
+		"LogLevel":    c.LogLevel,
 		"NodeWorkers": c.NodeWorkers,
 		"Controllers": c.Controllers,
 	}

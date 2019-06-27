@@ -1,6 +1,7 @@
 BINDIR=bin
 DOCKER=docker
 GO=go
+GOFMT=gofmt
 BINARY=stargazer
 
 TAG?=$(shell git rev-list HEAD --max-count=1 --abbrev-commit)
@@ -12,6 +13,9 @@ all: image
 
 bindir:
 	mkdir -p ${BINDIR}
+
+format:
+	${GOFMT} -l -s -w .
 
 test:
 	${GO} test -v ./...
